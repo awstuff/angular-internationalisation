@@ -1,5 +1,5 @@
 # angular-internationalisation
-angular-internationalisation is a library that allows you to create multi-language applications with just a few lines of additional code. This library is **NOT** maintained by the angular team.
+angular-internationalisation is a library that allows you to create multi-language AngularJS applications with just a few lines of additional code. This library is **NOT** maintained by the angular team.
 
 ## Usage
 ### Basic usage
@@ -8,7 +8,7 @@ In order to use angular-internationalisation, simply include `angular-internatio
 var app = angular.module("demoApp", ["awInternationalisation"]);
 ````
 
-Next, inject `awInternationalisationProvider` somewhere, for example into your controller, and define the locales you want your app to use. You can them one by one by calling `awInternationalisationProvider.addLocale`, or add all of them at once via `awInternationalisationProvider.addLocales`.
+Next, inject `awInternationalisationProvider` somewhere, for example into your controller, and define the locales you want your app to use. You can add them one by one by calling `awInternationalisationProvider.addLocale`, or add all of them at once via `awInternationalisationProvider.addLocales`.
 ````javascript
 app.controller("demoController", ["$scope", "awInternationalisationProvider", function ($scope, awInternationalisationProvider) {
 
