@@ -49,5 +49,5 @@ Include the actual text elements into your HTML-Markup as follows:
 - `addLocales` adds multiple locales (see example above)
 - `setCurrentLocale` sets the current locale (see example above)
 - `setDefaultLocale` sets the default locale. The default locale is selected if no locale setting can be found in the browser's `localStorage`. `setDefaultLocale` accepts one parameter (the locale's name), just as `setCurrentLocale` does.
-- `setFirstLocale` sets the current locale to the first one that was added via `addLocale` or `addLocales`. This function is mainly used internally, but it is exposed publically, in case there is any other scenario where it may be useful.
+- `setFirstLocale` sets the current locale to the first one that was added via `addLocale` or `addLocales`. This function is mainly used internally, but it is exposed publicly, in case there is any other scenario where it may be useful.
 - `getCurrentLocale` gets the name of the current locale
