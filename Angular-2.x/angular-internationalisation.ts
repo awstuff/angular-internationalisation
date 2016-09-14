@@ -1,4 +1,13 @@
-import { Directive, ElementRef, EventEmitter, Injectable, NgModule, Renderer } from "@angular/core";
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Injectable,
+    NgModule,
+    OnInit,
+    OnDestroy,
+    Renderer
+} from "@angular/core";
 
 /**
  * localStorage reference
@@ -341,9 +350,12 @@ export class InternationalisationService {
 @Directive({
     selector: "[aw-int]"
 })
-class InternationalisationDirective {
+class InternationalisationDirective implements OnInit, OnDestroy {
+    private localeChangedSubscription: any;
 
-    constructor (private internationalisationService: InternationalisationService, private element: ElementRef, private renderer: Renderer) {
+    constructor (private internationalisationService: InternationalisationService, private element: ElementRef, private renderer: Renderer) {}
+
+    ngOnInit (): void {
         const nativeElement = this.element.nativeElement;
         const key = nativeElement.getAttribute("aw-int");
 
@@ -353,7 +365,13 @@ class InternationalisationDirective {
             this.renderer.setText(nativeElement, this.internationalisationService.getCurrentLocaleValue(key));
         })();
 
-        this.internationalisationService.localeChanged.subscribe(updateContent);
+        this.localeChangedSubscription = this.internationalisationService.localeChanged.subscribe(updateContent);
+    }
+
+    ngOnDestroy (): void {
+        console.debug("destroy");
+
+        this.localeChangedSubscription.unsubscribe();
     }
 
 }
