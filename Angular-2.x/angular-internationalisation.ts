@@ -3,6 +3,7 @@ import {
     ElementRef,
     EventEmitter,
     Injectable,
+    Input,
     NgModule,
     OnInit,
     OnDestroy,
@@ -351,26 +352,25 @@ export class InternationalisationService {
     selector: "[aw-int]"
 })
 class InternationalisationDirective implements OnInit, OnDestroy {
+    @Input("aw-int") private key: string;
+
     private localeChangedSubscription: any;
 
     constructor (private internationalisationService: InternationalisationService, private element: ElementRef, private renderer: Renderer) {}
 
     ngOnInit (): void {
         const nativeElement = this.element.nativeElement;
-        const key = nativeElement.getAttribute("aw-int");
 
         let updateContent: () => void;
 
         (updateContent = () => {
-            this.renderer.setText(nativeElement, this.internationalisationService.getCurrentLocaleValue(key));
+            this.renderer.setText(nativeElement, this.internationalisationService.getCurrentLocaleValue(this.key));
         })();
 
         this.localeChangedSubscription = this.internationalisationService.localeChanged.subscribe(updateContent);
     }
 
     ngOnDestroy (): void {
-        console.debug("destroy");
-
         this.localeChangedSubscription.unsubscribe();
     }
 
