@@ -1,0 +1,16 @@
+{
+  "name": "angular-internationalisation",
+  "version": "1.0.0",
+  "description": "Multi-language support for AngularJS 2",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awstuff/angular-internationalisation.git"
+  },
+  "author": "Adrian Wirth <adrian.wirth@yahoo.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/awstuff/angular-internationalisation/issues"
+  },
+  "homepage": "https://github.com/awstuff/angular-internationalisation#readme"
+}
