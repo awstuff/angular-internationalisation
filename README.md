@@ -5,7 +5,7 @@
 `npm install angular-internationalisation`
 
 ### Basic usage
-In order to use angular-internationalisation, simply add the dependency `awInternationalisation` to your module definition, like this:
+In order to use angular-internationalisation, simply add the dependency to your module definition, like this:
 ````javascript
 import { InternationalisationModule } from "angular-internationalisation";
 
