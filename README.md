@@ -1,10 +1,13 @@
 # angular-internationalisation for Angular 2.x
 
 ## Usage
+### Installation
+`npm install angular-internationalisation`
+
 ### Basic usage
-In order to use angular-internationalisation, simply include `angular-internationalisation.ts` in your project and add the dependency `awInternationalisation` to your module definition, like this:
+In order to use angular-internationalisation, simply add the dependency `awInternationalisation` to your module definition, like this:
 ````javascript
-import { InternationalisationModule } from "./angular-internationalisation";
+import { InternationalisationModule } from "angular-internationalisation";
 
 @NgModule({
     imports: [ InternationalisationModule ]
@@ -14,7 +17,7 @@ export class AppModule {}
 
 Next, inject `InternationalisationService` somewhere, for example into a component or service, and define the locales you want your app to use:
 ````javascript
-import { InternationalisationService } from "./../angular-internationalisation";
+import { InternationalisationService } from "angular-internationalisation";
 
 @Injectable()
 export class ExampleService {
