@@ -1,6 +1,6 @@
 {
   "name": "angular-internationalisation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Multi-language support for AngularJS 2",
   "main": "index.ts",
   "repository": {
