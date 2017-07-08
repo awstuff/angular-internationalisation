@@ -57,3 +57,4 @@ Include the actual text into your HTML-Markup as follows:
 - `setCurrentLocale` sets the current locale (see example above)
 - `setDefaultLocale` sets the default locale. The default locale is selected if no locale setting can be found in the browser's `localStorage`. `setDefaultLocale` accepts one parameter (the locale's name), just as `setCurrentLocale` does.
 - `getCurrentLocale` gets the name of the current locale
+- `getCurrentLocaleValue` gets the current locale's translation value for the specified key

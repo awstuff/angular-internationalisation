@@ -6,8 +6,7 @@ import {
     Input,
     NgModule,
     OnInit,
-    OnDestroy,
-    Renderer
+    OnDestroy
 } from "@angular/core";
 
 /**
@@ -80,7 +79,19 @@ export class InternationalisationService {
             return "";
         }
 
-        const value = currentMap[key];
+        let value;
+
+        if (key.indexOf(".") > -1) {
+            let keySplit = key.split(".");
+
+            value = currentMap;
+
+            for (let i = 0; i < keySplit.length; i++) {
+                value = value[keySplit[i]];
+            }
+        } else {
+            value = currentMap[key];
+        }
 
         if (!value) {
             this.err("Locale '" + currentLocale + "' does not provide a translation for the key '" + key + "'.");
@@ -356,7 +367,7 @@ class InternationalisationDirective implements OnInit, OnDestroy {
 
     private localeChangedSubscription: any;
 
-    constructor (private internationalisationService: InternationalisationService, private element: ElementRef, private renderer: Renderer) {}
+    constructor (private internationalisationService: InternationalisationService, private element: ElementRef) {}
 
     ngOnInit (): void {
         const nativeElement = this.element.nativeElement;
@@ -364,7 +375,7 @@ class InternationalisationDirective implements OnInit, OnDestroy {
         let updateContent: () => void;
 
         (updateContent = () => {
-            this.renderer.setText(nativeElement, this.internationalisationService.getCurrentLocaleValue(this.key));
+            nativeElement.textContent = this.internationalisationService.getCurrentLocaleValue(this.key)
         })();
 
         this.localeChangedSubscription = this.internationalisationService.localeChanged.subscribe(updateContent);
